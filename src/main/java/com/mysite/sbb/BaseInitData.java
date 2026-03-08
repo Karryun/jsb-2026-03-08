@@ -42,6 +42,12 @@ public class BaseInitData {
         q2.setContent("id는 자동으로 생성되나요?");
         q2.setCreateDate(LocalDateTime.now());
         this.questionRepository.save(q2);  // 두번째 질문 저장
+
+        Answer a = new Answer();
+        a.setContent("네 자동으로 생성됩니다.");
+        a.setQuestion(q2);  // 어떤 질문의 답변인지 알기위해서 Question 객체가 필요하다.
+        a.setCreateDate(LocalDateTime.now());
+        this.answerRepository.save(a);
     }
 }
 
